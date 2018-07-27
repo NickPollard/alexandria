@@ -3,10 +3,6 @@ module Alexandria where
 import Data.Text
 import Shake
 
--- TODO from config
-dependencyDir :: FilePath
-dependencyDir = "./.dependencies"
-
 data Config = Config {
   dependencyDir :: FilePath
 }

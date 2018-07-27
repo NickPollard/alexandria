@@ -1,17 +1,11 @@
--- This file has been generated from package.yaml by hpack version 0.28.2.
---
--- see: https://github.com/sol/hpack
---
--- hash: 8ec9f17d8f1f449f4b6ab879c76236e40f9b95e9db57bc6198401a1045ab353f
-
 name:           Alexandria
 version:        0.1.0.0
-description:    Please see the README on GitHub at <https://github.com/githubuser/Alexandria#readme>
-homepage:       https://github.com/githubuser/Alexandria#readme
-bug-reports:    https://github.com/githubuser/Alexandria/issues
-author:         Author name here
-maintainer:     example@example.com
-copyright:      2018 Author name here
+description:    Please see the README on GitHub at <https://github.com/NickPollard/alexandria#readme>
+homepage:       https://github.com/NickPollard/alexandria#readme
+bug-reports:    https://github.com/NickPollard/alexandria/issues
+author:         Nick Pollard
+maintainer:     nickedwardpollard@gmail.com
+copyright:      2018 Nick Pollard
 license:        BSD3
 license-file:   LICENSE
 build-type:     Simple
@@ -36,7 +30,10 @@ library
       base >=4.7 && <5,
       aeson,
       containers,
-      gitlib,
+      directory,
+      extra,
+      filepath,
+      process,
       text,
       yaml
   default-language: Haskell2010
