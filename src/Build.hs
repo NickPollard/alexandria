@@ -11,6 +11,12 @@ import System.Process
 
 import Package
 
+clean :: MonadIO m => m ()
+clean = do
+  liftIO . putStrLn $ "Removing dependencies and managed files..."
+  liftIO $ callProcess "rm" ["-rf", dependencyDir]
+  liftIO . putStrLn $ "Dependencies cleaned"
+
 update :: MonadIO m => m ()
 update = do
   p <- loadPackage "package.yaml"
