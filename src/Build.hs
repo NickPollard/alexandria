@@ -11,6 +11,9 @@ import System.Process
 
 import Package
 
+packageFile :: FilePath
+packageFile = "package.yaml"
+
 clean :: MonadIO m => m ()
 clean = do
   liftIO . putStrLn $ "Removing dependencies and managed files..."
@@ -19,8 +22,12 @@ clean = do
 
 update :: MonadIO m => m ()
 update = do
-  p <- loadPackage "package.yaml"
-  either (liftIO . print) update' p
+  exists <- liftIO $ doesPathExist packageFile
+  if exists then do
+    p <- loadPackage packageFile
+    either (liftIO . print) update' p
+  else
+    liftIO . putStrLn $ "No package file (" <> packageFile <> ") found."
 
 update' :: MonadIO m => Package -> m ()
 update' (Package deps) = forM_ (Map.toList deps) $ \(Name name, dep) -> do
